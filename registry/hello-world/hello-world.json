@@ -6,7 +6,7 @@
     "description": "Basic hello world",
     "files": [
         {
-            "path": "registry/hello-world.tsx",
+            "path": "registry/hello-world/hello-world.tsx",
             "type": "registry:component"
         }
     ]
