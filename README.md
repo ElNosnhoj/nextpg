@@ -1,0 +1,2 @@
+# nextpg
+playground for nextjs
