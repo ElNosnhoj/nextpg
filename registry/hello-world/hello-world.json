@@ -1,13 +1,14 @@
 {
     "$schema": "https://ui.shadcn.com/schema/registry-item.json",
     "name": "hello-world",
-    "type": "registry:component",
+    "type": "registry:block",
     "title": "Hello World",
     "description": "Basic hello world",
     "files": [
         {
             "path": "registry/hello-world/hello-world.tsx",
-            "type": "registry:component"
+            "type": "registry:file",
+            "target": "~/components/hello-world.tsx"
         }
     ]
 }
