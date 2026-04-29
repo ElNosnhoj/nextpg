@@ -8,7 +8,7 @@
         {
             "path": "registry/hello-world/hello-world.tsx",
             "type": "registry:file",
-            "target": "~/components/hello-world.tsx"
+            "target": "components/hello-world.tsx"
         }
     ]
 }
