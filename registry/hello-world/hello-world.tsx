@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button"
+
 export function HelloWorld() {
-    return <div>Hello world 👋</div>;
+  return <Button>Hello World</Button>
 }
