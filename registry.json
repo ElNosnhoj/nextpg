@@ -7,19 +7,21 @@
             "name": "notify",
             "title": "notify",
             "type": "registry:block",
-            "description": "notification sonnar system",
-            "registryDependencies": ["sonner"],
+            "description": "notification sonner system",
+            "registryDependencies": [
+                "sonner"
+            ],
             "dependencies": [],
             "files": [
                 {
                     "path": "lib/notify.tsx",
                     "target": "lib/notify.tsx",
-                    "type": "registry:component"
+                    "type": "registry:lib"
                 }
             ]
         },
         {
-            "name": "useKeyboard",
+            "name": "use-keyboard",
             "title": "useKeyboard",
             "type": "registry:block",
             "description": "React hooks for global keyboard events and hotkeys",
@@ -29,6 +31,23 @@
                 {
                     "path": "hooks/useKeyboard.ts",
                     "target": "hooks/useKeyboard.ts",
+                    "type": "registry:hook"
+                }
+            ]
+        },
+        {
+            "name": "dark-mode-toggle",
+            "title": "Dark Mode Toggle",
+            "type": "registry:block",
+            "description": "Animated light/dark mode toggle button",
+            "registryDependencies": [
+                "next-themes"
+            ],
+            "dependencies": [],
+            "files": [
+                {
+                    "path": "components/ui/dark-mode-toggle.tsx",
+                    "target": "components/ui/dark-mode-toggle.tsx",
                     "type": "registry:component"
                 }
             ]

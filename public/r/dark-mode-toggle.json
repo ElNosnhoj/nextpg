@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dark-mode-toggle",
+  "title": "Dark Mode Toggle",
+  "description": "Animated light/dark mode toggle button",
+  "dependencies": [],
+  "registryDependencies": [
+    "next-themes"
+  ],
+  "files": [
+    {
+      "path": "components/ui/dark-mode-toggle.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { useTheme } from \"next-themes\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype IconType = React.ComponentType<{ className?: string }>\n\nconst buttonVariants = cva(cn(\n    \"inline-flex align-middle leading-none transition-all rounded\",\n    \"border border-accent-foreground hover:border-muted-foreground\",\n    \"bg-accent text-accent-foreground hover:bg-muted hover:text-muted-foreground\",\n), {\n    variants: {\n        variant: {\n            default: \"\",\n            outline: \"\",\n            ghost: \"\",\n        },\n        size: {\n            xs: \"size-2 p-px\",\n            sm: \"size-4 p-0.5\",\n            default: \"size-8 p-1\",\n            lg: \"size-12 p-1.5\",\n            xl: \"size-16 p-2\",\n        },\n    },\n    defaultVariants: {\n        variant: \"default\",\n        size: \"default\",\n    },\n})\n\ntype DarkModeToggleProps =\n    React.ButtonHTMLAttributes<HTMLButtonElement> &\n    VariantProps<typeof buttonVariants> & {\n        light: IconType\n        dark: IconType\n    }\n\nexport default function DarkModeToggle({\n    light: LightIcon,\n    dark: DarkIcon,\n    className,\n    variant,\n    size,\n    onClick,\n    type = \"button\",\n    ...props\n}: DarkModeToggleProps) {\n    const { resolvedTheme, setTheme } = useTheme()\n\n    const toggleTheme = () => {\n        setTheme(resolvedTheme === \"dark\" ? \"light\" : \"dark\")\n    }\n\n    return (\n        <button\n            type={type}\n            className={cn(buttonVariants({ variant, size }), className)}\n            onClick={(e) => {\n                onClick?.(e)\n                if (!e.defaultPrevented) {\n                    toggleTheme()\n                }\n            }}\n            {...props}\n        >\n            <span className=\"relative flex items-stretch size-full\">\n                <span className=\"transition-all dark:scale-0 dark:-rotate-90 size-full\">\n                    <LightIcon className=\"size-full\" />\n                </span>\n\n                <span className=\"absolute inset-0 transition-all scale-0 -rotate-90 dark:scale-100 dark:rotate-0\">\n                    <DarkIcon className=\"size-full\" />\n                </span>\n            </span>\n        </button>\n    )\n}",
+      "type": "registry:component",
+      "target": "components/ui/dark-mode-toggle.tsx"
+    }
+  ],
+  "type": "registry:block"
+}
