@@ -1,10 +1,9 @@
 "use client"
+
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import {
     ChevronDown,
-    Folder,
-    Bot,
-    ChevronsUpDown,
     Wrench,
     Puzzle,
     FishingHook,
@@ -35,31 +34,6 @@ function ComponentSidebarHeader() {
             <DarkModeToggle light={Sun} dark={MoonStar}/>
         </SidebarHeader>
     )
-    return (
-        <SidebarHeader className="border-b px-3 py-3" hidden>
-            <SidebarMenu>
-                <SidebarMenuItem>
-                    <SidebarMenuButton
-                        size="lg"
-                        className="h-auto min-h-12 px-2 py-2"
-                    >
-                        <div className="flex size-8 items-center justify-center rounded-lg bg-foreground text-background">
-                            <Folder className="size-4" />
-                        </div>
-
-                        <div className="grid flex-1 text-left text-sm leading-tight">
-                            <span className="truncate font-medium">Acme Inc</span>
-                            <span className="truncate text-xs text-muted-foreground">
-                                Enterprise
-                            </span>
-                        </div>
-
-                        <ChevronsUpDown className="ml-auto size-4 text-muted-foreground" />
-                    </SidebarMenuButton>
-                </SidebarMenuItem>
-            </SidebarMenu>
-        </SidebarHeader>
-    )
 }
 
 type LinkProps = {
@@ -70,6 +44,7 @@ type ComponentMenuGroupProps = {
     icon: React.ComponentType<{ className?: string }>
     label: string
     links: LinkProps[]
+    pathname: string
 }
 const ComponentLinks: LinkProps[] = [
     { href: "/docs/components/dark-mode-toggle", text: "dark-mode-toggle" }
@@ -86,13 +61,20 @@ const HookLinks: LinkProps[] = [
 function ComponentMenuGroup({
     icon: Icon,
     label,
-    links
+    links,
+    pathname,
 }: ComponentMenuGroupProps) {
+    const hasActiveLink = links.some((link) => link.href === pathname)
+
     return (
-        <Collapsible defaultOpen className="group/collapsible">
+        <Collapsible
+            key={`${label}-${hasActiveLink ? "active" : "inactive"}`}
+            defaultOpen={hasActiveLink}
+            className="group/collapsible"
+        >
             <SidebarMenuItem>
                 <CollapsibleTrigger asChild>
-                    <SidebarMenuButton className="font-medium">
+                    <SidebarMenuButton className="font-medium" isActive={hasActiveLink}>
                         <Icon className="size-4" />
                         <span>{label}</span>
                         <ChevronDown className="ml-auto size-4 transition-transform group-data-[state=closed]/collapsible:-rotate-90" />
@@ -103,7 +85,7 @@ function ComponentMenuGroup({
                         {
                             links.map((l, i) => (
                                 <SidebarMenuSubItem key={i}>
-                                    <SidebarMenuSubButton asChild>
+                                    <SidebarMenuSubButton asChild isActive={pathname === l.href}>
                                         <Link href={l.href}>{l.text}</Link>
                                     </SidebarMenuSubButton>
                                 </SidebarMenuSubItem>
@@ -117,6 +99,8 @@ function ComponentMenuGroup({
 }
 
 export function ComponentSidebar() {
+    const pathname = usePathname()
+
     return (
         <Sidebar>
             <ComponentSidebarHeader />
@@ -128,16 +112,19 @@ export function ComponentSidebar() {
                             icon={Puzzle}
                             label="Components"
                             links={ComponentLinks}
+                            pathname={pathname}
                         />
                         <ComponentMenuGroup 
                             icon={Wrench}
                             label="Utilities"
                             links={UtilityLinks}
+                            pathname={pathname}
                         />
                         <ComponentMenuGroup 
                             icon={FishingHook}
                             label="Hooks"
                             links={HookLinks}
+                            pathname={pathname}
                         />
                     </SidebarMenu>
                 </SidebarGroup>
