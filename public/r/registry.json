@@ -5,8 +5,8 @@
     "items": [
         {
             "name": "notify",
-            "type": "registry:block",
             "title": "notify",
+            "type": "registry:block",
             "description": "notification sonnar system",
             "registryDependencies": ["sonner"],
             "dependencies": [],
@@ -14,6 +14,21 @@
                 {
                     "path": "lib/notify.tsx",
                     "target": "lib/notify.tsx",
+                    "type": "registry:component"
+                }
+            ]
+        },
+        {
+            "name": "useKeyboard",
+            "title": "useKeyboard",
+            "type": "registry:block",
+            "description": "React hooks for global keyboard events and hotkeys",
+            "registryDependencies": [],
+            "dependencies": [],
+            "files": [
+                {
+                    "path": "hooks/useKeyboard.ts",
+                    "target": "hooks/useKeyboard.ts",
                     "type": "registry:component"
                 }
             ]
