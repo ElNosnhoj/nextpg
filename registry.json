@@ -1,0 +1,22 @@
+{
+    "$schema": "https://ui.shadcn.com/schema/registry.json",
+    "name": "acme",
+    "homepage": "https://acme.com",
+    "items": [
+        {
+            "name": "notify",
+            "type": "registry:block",
+            "title": "notify",
+            "description": "notification sonnar system",
+            "registryDependencies": ["sonner"],
+            "dependencies": [],
+            "files": [
+                {
+                    "path": "lib/notify.tsx",
+                    "target": "lib/notify.tsx",
+                    "type": "registry:component"
+                }
+            ]
+        }
+    ]
+}
