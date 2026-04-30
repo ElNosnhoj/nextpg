@@ -1,6 +1,6 @@
 
 export default function DNE() {
     return (
-        <div>askjldlsak</div>
+        <div>not yet implemented or dne</div>
     )
 }
