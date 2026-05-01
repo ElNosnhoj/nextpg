@@ -27,36 +27,26 @@ import {
 } from "@/components/ui/sidebar"
 import React from "react"
 import DarkModeToggle from "@/components/ui/dark-mode-toggle"
+import { LinkProps, links } from "./shared"
 
 function ComponentSidebarHeader() {
     return (
-        <SidebarHeader className="border-b p-3">
-            <DarkModeToggle light={Sun} dark={MoonStar}/>
+        <SidebarHeader className="border-b p-3 flex flex-row items-center">
+            <DarkModeToggle light={Sun} dark={MoonStar} />
+            <Link href="/docs/components" className="flex flex-col flex-1 py-1 px-1 rounded-md border border-transparent hover:border-border hover:bg-muted cursor-pointer">
+                <h2 className="font-bold text-sm leading-none">Nos Playground</h2>
+                <p className="text-muted-foreground text-xs leading-none">Storybook style testing</p>
+            </Link>
         </SidebarHeader>
     )
 }
 
-type LinkProps = {
-    href: string
-    text: React.ReactNode
-}
 type ComponentMenuGroupProps = {
     icon: React.ComponentType<{ className?: string }>
     label: string
     links: LinkProps[]
     pathname: string
 }
-const ComponentLinks: LinkProps[] = [
-    { href: "/docs/components/dark-mode-toggle", text: "dark-mode-toggle" }
-    
-]
-const UtilityLinks: LinkProps[] = [
-    { href: "/docs/components/notify", text: "notify" }
-]
-
-const HookLinks: LinkProps[] = [
-    { href: "/docs/components/use-keyboard", text: "useKeyboard" }
-]
 
 function ComponentMenuGroup({
     icon: Icon,
@@ -86,7 +76,7 @@ function ComponentMenuGroup({
                             links.map((l, i) => (
                                 <SidebarMenuSubItem key={i}>
                                     <SidebarMenuSubButton asChild isActive={pathname === l.href}>
-                                        <Link href={l.href}>{l.text}</Link>
+                                        <Link href={l.href}>{l.label}</Link>
                                     </SidebarMenuSubButton>
                                 </SidebarMenuSubItem>
                             ))
@@ -108,22 +98,22 @@ export function ComponentSidebar() {
                 <SidebarGroup className="pt-0">
                     <SidebarGroupLabel>Platform</SidebarGroupLabel>
                     <SidebarMenu>
-                        <ComponentMenuGroup 
+                        <ComponentMenuGroup
                             icon={Puzzle}
-                            label="Components"
-                            links={ComponentLinks}
+                            label="Ui Components"
+                            links={links.ui}
                             pathname={pathname}
                         />
-                        <ComponentMenuGroup 
+                        <ComponentMenuGroup
                             icon={Wrench}
                             label="Utilities"
-                            links={UtilityLinks}
+                            links={links.utility}
                             pathname={pathname}
                         />
-                        <ComponentMenuGroup 
+                        <ComponentMenuGroup
                             icon={FishingHook}
                             label="Hooks"
-                            links={HookLinks}
+                            links={links.hook}
                             pathname={pathname}
                         />
                     </SidebarMenu>

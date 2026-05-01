@@ -250,6 +250,7 @@ export default function NotifyPage() {
                         Storybook-style playground for toaster and notify options
                     </p>
                 </div>
+                <CodeCopyCard code="npx shadcn add @nos/notify" title="Install" />
 
                 <Card className="w-full p-6 flex flex-col gap-6">
                     <div className="flex flex-wrap gap-3">
