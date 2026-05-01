@@ -15,7 +15,8 @@ const useBase = (links: RawLink[]): LinkProps[] =>
     }))
 
 export const uiLinks = useBase([
-    { href: "/dark-mode-toggle", label: "dark-mode-toggle" }
+    { href: "/dark-mode-toggle", label: "dark-mode-toggle" },
+    { href: "/reveal", label: "reveal" }
 ])
 
 export const utilityLinks = useBase([
