@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "reveal",
+  "title": "Reveal",
+  "description": "Scroll-based reveal animation wrapper with support for direction, blur, scale, and rotation.",
+  "dependencies": [],
+  "registryDependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/ui/reveal.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { motion, useInView, useReducedMotion } from \"motion/react\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype OffsetValue = number | string\n\nconst CONST_DURATION = 0.3\nconst CONST_DELAY = 0.2\nconst CONST_REVEAL = 24\nconst CONST_TRIGGER_ONCE = false\nconst CONST_TRIGGER_ON_VIEW = true\nconst CONST_VIEW_AMOUNT = 0.2\n\nexport interface RevealProps {\n    delay?: number\n    duration?: number\n    direction?: \"up\" | \"down\" | \"left\" | \"right\" | \"none\"\n    triggerOnView?: boolean\n    triggerOnce?: boolean\n    viewAmount?: number\n    x?: OffsetValue\n    y?: OffsetValue\n    blur?: number\n    scale?: number\n    rotate?: number\n}\n\nconst directionVariants: Record<\n    NonNullable<RevealProps[\"direction\"]>,\n    { x: OffsetValue; y: OffsetValue }\n> = {\n    none: { x: 0, y: 0 },\n    up: { x: 0, y: CONST_REVEAL },\n    down: { x: 0, y: -CONST_REVEAL },\n    left: { x: CONST_REVEAL, y: 0 },\n    right: { x: -CONST_REVEAL, y: 0 },\n}\n\nexport function Reveal({\n    children,\n    className,\n    delay = CONST_DELAY,\n    duration = CONST_DURATION,\n    direction = \"none\",\n    triggerOnView = CONST_TRIGGER_ON_VIEW,\n    triggerOnce = CONST_TRIGGER_ONCE,\n    viewAmount = CONST_VIEW_AMOUNT,\n    x,\n    y,\n    blur = 0,\n    scale = 1,\n    rotate = 0,\n    style,\n    ...props\n}: React.ComponentProps<typeof motion.div> & RevealProps) {\n    const ref = React.useRef<HTMLDivElement>(null)\n\n    const isInView = useInView(ref, {\n        once: triggerOnce,\n        amount: viewAmount,\n    })\n\n    const shouldReduceMotion = useReducedMotion()\n\n    const directionOffset = directionVariants[direction]\n    const hasCustomOffset = x !== undefined || y !== undefined\n\n    const initialX = hasCustomOffset ? (x ?? 0) : directionOffset.x\n    const initialY = hasCustomOffset ? (y ?? 0) : directionOffset.y\n\n    const initialState = {\n        opacity: 0,\n        x: initialX,\n        y: initialY,\n        scale,\n        rotate,\n        filter: blur > 0 ? `blur(${blur}px)` : \"blur(0px)\",\n    }\n\n    const revealedState = {\n        opacity: 1,\n        x: 0,\n        y: 0,\n        scale: 1,\n        rotate: 0,\n        filter: \"blur(0px)\",\n    }\n\n    if (shouldReduceMotion) {\n        return (\n            <motion.div\n                ref={ref}\n                className={className}\n                style={style}\n                initial={false}\n                animate={{ opacity: 1 }}\n                {...props}\n            >\n                {children}\n            </motion.div>\n        )\n    }\n\n    const shouldAnimate = triggerOnView ? isInView : true\n\n    return (\n        <motion.div\n            ref={ref}\n            className={cn(\"overflow-hidden\", className)}\n            style={style}\n            initial={initialState}\n            animate={shouldAnimate ? revealedState : initialState}\n            transition={{\n                duration,\n                delay,\n                ease: \"easeOut\",\n            }}\n            {...props}\n        >\n            {children}\n        </motion.div>\n    )\n}",
+      "type": "registry:component",
+      "target": "components/ui/reveal.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

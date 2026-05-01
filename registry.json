@@ -51,6 +51,23 @@
                     "type": "registry:component"
                 }
             ]
+        },
+        {
+            "name": "reveal",
+            "title": "Reveal",
+            "type": "registry:block",
+            "description": "Scroll-based reveal animation wrapper with support for direction, blur, scale, and rotation.",
+            "registryDependencies": [
+                "motion"
+            ],
+            "dependencies": [],
+            "files": [
+                {
+                    "path": "components/ui/reveal.tsx",
+                    "target": "components/ui/reveal.tsx",
+                    "type": "registry:component"
+                }
+            ]
         }
     ]
 }
