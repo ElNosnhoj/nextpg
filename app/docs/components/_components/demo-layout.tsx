@@ -62,7 +62,7 @@ export function DocsPanel({
 
 export function PreviewSurface({ children }: { children: React.ReactNode }) {
     return (
-        <div className="flex min-h-[420px] items-center justify-center overflow-hidden rounded-2xl border bg-muted/30 p-8">
+        <div className="flex min-h-105 items-center justify-center overflow-hidden rounded-2xl border bg-muted/30 p-8">
             {children}
         </div>
     );
