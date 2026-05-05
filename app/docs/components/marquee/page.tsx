@@ -85,11 +85,10 @@ function buildMarqueeCode(values: MarqueeControlValues) {
         `  gap={${JSON.stringify(parseGapValue(values.gap))}}`,
         `  autoFill={${values.autoFill}}`,
         `  pauseOnHover={${values.pauseOnHover}}`,
-        `  className="h-full"`,
     ];
 
     return `\
-<div className="h-64 overflow-hidden rounded-2xl border bg-blue-100">
+<div className="h-64 overflow-hidden rounded-2xl border bg-blue-100 flex items-center justify-center">
   <Marquee
 ${propLines.join("\n")}
   >
@@ -107,14 +106,13 @@ ${propLines.join("\n")}
 function MarqueePreview({ controls }: { controls: MarqueeControlValues }) {
     return (
         <PreviewSurface>
-            <div className="h-64 w-full overflow-hidden rounded-2xl border bg-blue-100">
+            <div className="h-64 w-full overflow-hidden rounded-2xl border bg-blue-100 flex items-center justify-center">
                 <Marquee
                     speed={controls.speed}
                     from={controls.from as MarqueeProps["from"]}
                     gap={parseGapValue(controls.gap)}
                     autoFill={controls.autoFill}
                     pauseOnHover={controls.pauseOnHover}
-                    className="h-full"
                 >
                     {demoItems.map((item) => (
                         <MarqueeItem key={item}>
