@@ -68,6 +68,21 @@
                     "type": "registry:component"
                 }
             ]
+        },
+        {
+            "name": "marquee",
+            "title": "Marquee",
+            "type": "registry:block",
+            "description": "Continuous marquee wrapper with directional flow, normalized speed, autofill, and overlay support.",
+            "registryDependencies": [],
+            "dependencies": [],
+            "files": [
+                {
+                    "path": "components/ui/marquee.tsx",
+                    "target": "components/ui/marquee.tsx",
+                    "type": "registry:component"
+                }
+            ]
         }
     ]
 }

@@ -8,22 +8,23 @@ type RawLink = {
 
 export type LinkProps = RawLink
 
-const useBase = (links: RawLink[]): LinkProps[] =>
+const withBase = (links: RawLink[]): LinkProps[] =>
     links.map(link => ({
         ...link,
         href: `${base_url}${link.href}`
     }))
 
-export const uiLinks = useBase([
+export const uiLinks = withBase([
     { href: "/dark-mode-toggle", label: "dark-mode-toggle" },
-    { href: "/reveal", label: "reveal" }
+    { href: "/reveal", label: "reveal" },
+    { href: "/marquee", label: "marquee" },
 ])
 
-export const utilityLinks = useBase([
+export const utilityLinks = withBase([
     { href: "/notify", label: "notify" }
 ])
 
-export const hookLinks = useBase([
+export const hookLinks = withBase([
     { href: "/use-keyboard", label: "useKeyboard" }
 ])
 
