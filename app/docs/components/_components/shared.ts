@@ -25,7 +25,8 @@ export const utilityLinks = withBase([
 ])
 
 export const hookLinks = withBase([
-    { href: "/use-keyboard", label: "useKeyboard" }
+    { href: "/use-keyboard", label: "useKeyboard" },
+    { href: "/useIntersect", label: "useIntersect" },
 ])
 
 export const links = {
