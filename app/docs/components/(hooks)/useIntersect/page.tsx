@@ -262,6 +262,13 @@ export default function UseIntersectPage() {
         >
             <DocsStack>
                 <DocsPanel
+                    title="Install"
+                    description="Add the intersection hook to your project."
+                >
+                    <CodeBlock code="npx shadcn add @nos/use-intersect" language="bash" />
+                </DocsPanel>
+
+                <DocsPanel
                     title="Preview"
                     description="Scroll inside the preview container to watch the hook state update."
                 >

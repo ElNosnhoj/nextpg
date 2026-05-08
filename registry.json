@@ -36,6 +36,21 @@
             ]
         },
         {
+            "name": "use-intersect",
+            "title": "useIntersect",
+            "type": "registry:block",
+            "description": "IntersectionObserver hooks with shared observer buckets and a trigger-once helper.",
+            "registryDependencies": [],
+            "dependencies": [],
+            "files": [
+                {
+                    "path": "hooks/useIntersect.ts",
+                    "target": "hooks/useIntersect.ts",
+                    "type": "registry:hook"
+                }
+            ]
+        },
+        {
             "name": "dark-mode-toggle",
             "title": "Dark Mode Toggle",
             "type": "registry:block",
