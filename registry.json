@@ -98,6 +98,23 @@
                     "type": "registry:component"
                 }
             ]
+        },
+        {
+            "name": "skeleton",
+            "title": "Skeleton",
+            "type": "registry:block",
+            "description": "Flexible skeleton placeholder with animation, speed, tone, and fill variants.",
+            "registryDependencies": [
+                "class-variance-authority"
+            ],
+            "dependencies": [],
+            "files": [
+                {
+                    "path": "components/ui/skeleton.tsx",
+                    "target": "components/ui/skeleton.tsx",
+                    "type": "registry:component"
+                }
+            ]
         }
     ]
 }

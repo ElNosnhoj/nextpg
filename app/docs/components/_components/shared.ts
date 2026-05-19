@@ -18,6 +18,7 @@ export const uiLinks = withBase([
     { href: "/dark-mode-toggle", label: "dark-mode-toggle" },
     { href: "/reveal", label: "reveal" },
     { href: "/marquee", label: "marquee" },
+    { href: "/skeleton", label: "skeleton" },
 ])
 
 export const utilityLinks = withBase([
