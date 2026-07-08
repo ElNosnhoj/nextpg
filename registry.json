@@ -130,6 +130,29 @@
                     "type": "registry:component"
                 }
             ]
+        },
+        {
+            "name": "color-control",
+            "title": "Color Control",
+            "type": "registry:block",
+            "description": "Hook-driven color picker with inline and popover modes, optional alpha, and custom triggers.",
+            "registryDependencies": [],
+            "dependencies": [
+                "react-colorful",
+                "radix-ui"
+            ],
+            "files": [
+                {
+                    "path": "components/ui/color-control.tsx",
+                    "target": "components/ui/color-control.tsx",
+                    "type": "registry:component"
+                },
+                {
+                    "path": "components/ui/popover.tsx",
+                    "target": "components/ui/popover.tsx",
+                    "type": "registry:component"
+                }
+            ]
         }
     ]
 }

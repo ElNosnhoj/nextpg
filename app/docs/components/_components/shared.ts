@@ -20,6 +20,7 @@ export const uiLinks = withBase([
     { href: "/marquee", label: "marquee" },
     { href: "/skeleton", label: "skeleton" },
     { href: "/tooth-frame", label: "tooth-frame" },
+    { href: "/color-control", label: "color-control" },
 ])
 
 export const utilityLinks = withBase([
