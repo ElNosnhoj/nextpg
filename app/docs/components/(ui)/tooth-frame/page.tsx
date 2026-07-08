@@ -102,23 +102,27 @@ const toothFrameControls = {
         description: "Seconds for one tooth-pitch movement.",
     },
     outerFill: {
-        type: "text",
+        type: "color",
         defaultValue: "#111827",
+        alpha: true,
         description: "Outer frame fill color.",
     },
     outerStroke: {
-        type: "text",
+        type: "color",
         defaultValue: "#475569",
+        alpha: true,
         description: "Outer frame stroke color.",
     },
     teethFill: {
-        type: "text",
+        type: "color",
         defaultValue: "#22c55e",
+        alpha: true,
         description: "Animated tooth stroke color.",
     },
     innerFill: {
-        type: "text",
+        type: "color",
         defaultValue: "#f8fafc",
+        alpha: true,
         description: "Inner pill fill color.",
     },
 } satisfies DemoControlSchema

@@ -10,7 +10,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 
-function getContrastingTextColor(hex: string, backdrop = "#ffffff") {
+export function getContrastingTextColor(hex: string, backdrop = "#ffffff") {
     const cleanHex = hex.replace("#", "")
 
     if (!/^[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$/.test(cleanHex)) {

@@ -13,6 +13,11 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import {
+    ColorControl,
+    getContrastingTextColor,
+    type ColorState,
+} from "@/components/ui/color-control";
 
 type ControlBase = {
     label?: string;
@@ -38,6 +43,13 @@ type TextControl = ControlBase & {
     placeholder?: string;
 };
 
+type ColorControlDefinition = ControlBase & {
+    type: "color";
+    defaultValue: string;
+    alpha?: boolean;
+    popup?: boolean;
+};
+
 type SelectControl = ControlBase & {
     type: "select";
     defaultValue: string;
@@ -48,6 +60,7 @@ export type DemoControlDefinition =
     | BooleanControl
     | NumberControl
     | TextControl
+    | ColorControlDefinition
     | SelectControl;
 
 export type DemoControlSchema = Record<string, DemoControlDefinition>;
@@ -171,6 +184,49 @@ function TextControlField({
     );
 }
 
+function ColorControlField({
+    value,
+    onChange,
+    alpha = true,
+    popup = true,
+}: {
+    value: string;
+    onChange: (value: string) => void;
+    alpha?: boolean;
+    popup?: boolean;
+}) {
+    const [isEditing, setIsEditing] = React.useState(false);
+
+    const setColor = React.useCallback<React.Dispatch<React.SetStateAction<string>>>(
+        (nextColor) => {
+            onChange(
+                typeof nextColor === "function" ? nextColor(value) : nextColor
+            );
+        },
+        [onChange, value]
+    );
+
+    const colorState = React.useMemo<ColorState>(
+        () => ({
+            color: value,
+            setColor,
+            textColor: getContrastingTextColor(value),
+            isEditing,
+            setIsEditing,
+        }),
+        [isEditing, setColor, value]
+    );
+
+    return (
+        <ColorControl
+            colorState={colorState}
+            alpha={alpha}
+            popup={popup}
+            className="shadow-sm"
+        />
+    );
+}
+
 function SelectControlField({
     value,
     options,
@@ -232,6 +288,15 @@ function DemoControlField({
                     value={value as string}
                     placeholder={definition.placeholder}
                     onChange={onChange}
+                />
+            );
+        case "color":
+            return (
+                <ColorControlField
+                    value={value as string}
+                    alpha={definition.alpha}
+                    popup={definition.popup}
+                    onChange={(nextColor) => onChange(nextColor)}
                 />
             );
         case "select":
