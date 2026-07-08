@@ -23,6 +23,7 @@ type ToothFrameOrientation = "auto" | "horizontal" | "vertical"
 
 const orientationOptions = ["auto", "horizontal", "vertical"] as const
 const directionOptions = ["off", "cw", "ccw"] as const
+const toothFrameImportCode = `import ToothedFrame from "@/components/ui/tooth-frame"`
 
 const toothFrameControls = {
     orientation: {
@@ -213,7 +214,7 @@ export default function ToothFramePage() {
                     title="Install"
                     description="Add the tooth frame component to your project."
                 >
-                    <CodeBlock code="npx shadcn add @nos/tooth-frame" language="bash" />
+                    <CodeBlock label="Install" code="npx shadcn add @nos/tooth-frame" language="bash" />
                 </DocsPanel>
 
                 <DocsPanel
@@ -243,7 +244,8 @@ export default function ToothFramePage() {
                     title="Generated usage"
                     description="Use the current control state as a copy-ready starting point."
                 >
-                    <CodeBlock code={toothFrameCode} />
+                    <CodeBlock label="Imports" code={toothFrameImportCode} />
+                    <CodeBlock label="Usage" code={toothFrameCode} />
                 </DocsPanel>
             </DocsStack>
         </DocsPage>

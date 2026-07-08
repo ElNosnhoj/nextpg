@@ -32,6 +32,7 @@ const useAsyncActionControls = {
         description: "Throw an error after the async operation completes.",
     },
 } satisfies DemoControlSchema;
+const useAsyncActionImportCode = `import { useAsyncAction } from "@/hooks/useAsyncAction"`;
 
 type UseAsyncActionControlValues = {
     [K in keyof typeof useAsyncActionControls]: (typeof useAsyncActionControls)[K]["defaultValue"];
@@ -118,7 +119,7 @@ export default function UseAsyncActionPage() {
                     title="Install"
                     description="Add the async action hook to your project."
                 >
-                    <CodeBlock code="npx shadcn add @nos/use-async-action" language="bash" />
+                    <CodeBlock label="Install" code="npx shadcn add @nos/use-async-action" language="bash" />
                 </DocsPanel>
 
                 <DocsPanel
@@ -149,7 +150,8 @@ export default function UseAsyncActionPage() {
                     title="Generated usage"
                     description="Copy a starting point using the current hook settings."
                 >
-                    <CodeBlock code={hookCode} />
+                    <CodeBlock label="Imports" code={useAsyncActionImportCode} />
+                    <CodeBlock label="Usage" code={hookCode} />
                 </DocsPanel>
             </DocsStack>
         </DocsPage>

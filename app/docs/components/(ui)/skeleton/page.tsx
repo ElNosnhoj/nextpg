@@ -21,6 +21,7 @@ import { Skeleton, skeletonVariants } from "@/components/ui/skeleton";
 const animationOptions = ["pulse", "none"] as const;
 const speedOptions = ["slow", "normal", "fast"] as const;
 const toneOptions = ["default", "subtle", "strong"] as const;
+const skeletonImportCode = `import { Skeleton } from "@/components/ui/skeleton"`;
 
 const skeletonControls = {
     animation: {
@@ -119,7 +120,7 @@ export default function SkeletonPage() {
                     title="Install"
                     description="Add the skeleton component to your project."
                 >
-                    <CodeBlock code="npx shadcn add @nos/skeleton" language="bash" />
+                    <CodeBlock label="Install" code="npx shadcn add @nos/skeleton" language="bash" />
                 </DocsPanel>
 
                 <DocsPanel
@@ -149,7 +150,8 @@ export default function SkeletonPage() {
                     title="Generated usage"
                     description="Use the current control state as a copy-ready starting point."
                 >
-                    <CodeBlock code={skeletonCode} />
+                    <CodeBlock label="Imports" code={skeletonImportCode} />
+                    <CodeBlock label="Usage" code={skeletonCode} />
                 </DocsPanel>
             </DocsStack>
         </DocsPage>

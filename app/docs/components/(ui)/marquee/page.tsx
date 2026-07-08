@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/marquee";
 
 const marqueeFromOptions = ["right", "left", "top", "bottom"] as const;
+const marqueeImportCode = `import { Marquee, MarqueeItem } from "@/components/ui/marquee"`;
 
 const marqueeControls = {
     speed: {
@@ -142,7 +143,7 @@ export default function MarqueePage() {
                     title="Install"
                     description="Add the marquee component to your project."
                 >
-                    <CodeBlock code="npx shadcn add @nos/marquee" language="bash" />
+                    <CodeBlock label="Install" code="npx shadcn add @nos/marquee" language="bash" />
                 </DocsPanel>
 
                 <DocsPanel
@@ -176,7 +177,8 @@ export default function MarqueePage() {
                     title="Generated usage"
                     description="Copy the current marquee setup as a starting point."
                 >
-                    <CodeBlock code={marqueeCode} />
+                    <CodeBlock label="Imports" code={marqueeImportCode} />
+                    <CodeBlock label="Usage" code={marqueeCode} />
                 </DocsPanel>
             </DocsStack>
         </DocsPage>

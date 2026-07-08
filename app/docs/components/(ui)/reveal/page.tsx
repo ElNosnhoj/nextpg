@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Reveal, type RevealProps } from "@/components/ui/reveal";
 
 const revealDirectionOptions = ["none", "up", "down", "left", "right"] as const;
+const revealImportCode = `import { Reveal } from "@/components/ui/reveal"`;
 
 const revealControls = {
     delay: {
@@ -205,7 +206,7 @@ export default function RevealPage() {
                     title="Install"
                     description="Add the reveal component to your project."
                 >
-                    <CodeBlock code="npx shadcn add @nos/reveal" language="bash" />
+                    <CodeBlock label="Install" code="npx shadcn add @nos/reveal" language="bash" />
                 </DocsPanel>
 
                 <DocsPanel
@@ -231,7 +232,8 @@ export default function RevealPage() {
                     title="Generated usage"
                     description="The same control state can drive copy-ready example code."
                 >
-                    <CodeBlock code={revealCode} />
+                    <CodeBlock label="Imports" code={revealImportCode} />
+                    <CodeBlock label="Usage" code={revealCode} />
                 </DocsPanel>
             </DocsStack>
         </DocsPage>

@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/color-control"
 
 const defaultColor = "#3b82f688"
+const colorControlImportCode = `import { ColorControl, useColor } from "@/components/ui/color-control"`
 
 const colorControlControls = {
     alpha: {
@@ -169,7 +170,7 @@ export default function ColorControlPage() {
                     title="Install"
                     description="Add the color control component to your project."
                 >
-                    <CodeBlock code="npx shadcn add @nos/color-control" language="bash" />
+                    <CodeBlock label="Install" code="npx shadcn add @nos/color-control" language="bash" />
                 </DocsPanel>
 
                 <DocsPanel
@@ -199,7 +200,8 @@ export default function ColorControlPage() {
                     title="Generated usage"
                     description="Use the current color and control state as a copy-ready starting point."
                 >
-                    <CodeBlock code={colorControlCode} />
+                    <CodeBlock label="Imports" code={colorControlImportCode} />
+                    <CodeBlock label="Usage" code={colorControlCode} />
                 </DocsPanel>
             </DocsStack>
         </DocsPage>

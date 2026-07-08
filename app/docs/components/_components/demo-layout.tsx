@@ -70,9 +70,11 @@ export function PreviewSurface({ children }: { children: React.ReactNode }) {
 
 export function CodeBlock({
     code,
+    label,
     language = "tsx",
 }: {
     code: string;
+    label?: string;
     language?: string;
 }) {
     const [copied, setCopied] = React.useState(false);
@@ -85,7 +87,12 @@ export function CodeBlock({
 
     return (
         <div className="overflow-hidden rounded-xl border bg-muted/40">
-            <div className="flex items-center justify-end border-b px-3 py-2">
+            <div className={`flex items-center gap-3 border-b px-3 py-2 ${label ? "justify-between" : "justify-end"}`}>
+                {label ? (
+                    <div className="text-xs font-medium text-muted-foreground">
+                        {label}
+                    </div>
+                ) : null}
                 <Button
                     type="button"
                     variant="ghost"

@@ -17,6 +17,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { useIntersect, useIntersectOnce } from "@/hooks/useIntersect";
 
+const useIntersectImportCode = `import { useIntersect, useIntersectOnce } from "@/hooks/useIntersect"`;
+
 const useIntersectControls = {
     threshold: {
         type: "number",
@@ -265,7 +267,7 @@ export default function UseIntersectPage() {
                     title="Install"
                     description="Add the intersection hook to your project."
                 >
-                    <CodeBlock code="npx shadcn add @nos/use-intersect" language="bash" />
+                    <CodeBlock label="Install" code="npx shadcn add @nos/use-intersect" language="bash" />
                 </DocsPanel>
 
                 <DocsPanel
@@ -296,7 +298,8 @@ export default function UseIntersectPage() {
                     title="Generated usage"
                     description="Copy a starting point using the current hook settings."
                 >
-                    <CodeBlock code={hookCode} />
+                    <CodeBlock label="Imports" code={useIntersectImportCode} />
+                    <CodeBlock label="Usage" code={hookCode} />
                 </DocsPanel>
             </DocsStack>
         </DocsPage>
