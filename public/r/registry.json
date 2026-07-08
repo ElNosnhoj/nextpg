@@ -36,6 +36,21 @@
             ]
         },
         {
+            "name": "use-intersect",
+            "title": "useIntersect",
+            "type": "registry:block",
+            "description": "IntersectionObserver hooks with shared observer buckets and a trigger-once helper.",
+            "registryDependencies": [],
+            "dependencies": [],
+            "files": [
+                {
+                    "path": "hooks/useIntersect.ts",
+                    "target": "hooks/useIntersect.ts",
+                    "type": "registry:hook"
+                }
+            ]
+        },
+        {
             "name": "dark-mode-toggle",
             "title": "Dark Mode Toggle",
             "type": "registry:block",
@@ -65,6 +80,76 @@
                 {
                     "path": "components/ui/reveal.tsx",
                     "target": "components/ui/reveal.tsx",
+                    "type": "registry:component"
+                }
+            ]
+        },
+        {
+            "name": "marquee",
+            "title": "Marquee",
+            "type": "registry:block",
+            "description": "Continuous marquee wrapper with directional flow, normalized speed, autofill, and overlay support.",
+            "registryDependencies": [],
+            "dependencies": [],
+            "files": [
+                {
+                    "path": "components/ui/marquee.tsx",
+                    "target": "components/ui/marquee.tsx",
+                    "type": "registry:component"
+                }
+            ]
+        },
+        {
+            "name": "skeleton",
+            "title": "Skeleton",
+            "type": "registry:block",
+            "description": "Flexible skeleton placeholder with animation, speed, tone, and fill variants.",
+            "registryDependencies": [
+                "class-variance-authority"
+            ],
+            "dependencies": [],
+            "files": [
+                {
+                    "path": "components/ui/skeleton.tsx",
+                    "target": "components/ui/skeleton.tsx",
+                    "type": "registry:component"
+                }
+            ]
+        },
+        {
+            "name": "tooth-frame",
+            "title": "Tooth Frame",
+            "type": "registry:block",
+            "description": "Animated pill frame with configurable tooth geometry, direction, sizing, and colors.",
+            "registryDependencies": [],
+            "dependencies": [],
+            "files": [
+                {
+                    "path": "components/ui/tooth-frame.tsx",
+                    "target": "components/ui/tooth-frame.tsx",
+                    "type": "registry:component"
+                }
+            ]
+        },
+        {
+            "name": "color-control",
+            "title": "Color Control",
+            "type": "registry:block",
+            "description": "Hook-driven color picker with inline and popover modes, optional alpha, and custom triggers.",
+            "registryDependencies": [],
+            "dependencies": [
+                "react-colorful",
+                "radix-ui"
+            ],
+            "files": [
+                {
+                    "path": "components/ui/color-control.tsx",
+                    "target": "components/ui/color-control.tsx",
+                    "type": "registry:component"
+                },
+                {
+                    "path": "components/ui/popover.tsx",
+                    "target": "components/ui/popover.tsx",
                     "type": "registry:component"
                 }
             ]

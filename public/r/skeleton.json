@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton",
+  "title": "Skeleton",
+  "description": "Flexible skeleton placeholder with animation, speed, tone, and fill variants.",
+  "dependencies": [],
+  "registryDependencies": [
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "components/ui/skeleton.tsx",
+      "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst skeletonVariants = cva(\"bg-muted [animation-timing-function:ease-in]\", {\n    variants: {\n        animation: {\n            pulse: \"animate-pulse\",\n            none: \"\",\n        },\n\n        speed: {\n            slow: \"[animation-duration:3s]\",\n            normal: \"[animation-duration:2s]\",\n            fast: \"[animation-duration:1s]\",\n        },\n\n        tone: {\n            default: \"bg-muted\",\n            subtle: \"bg-muted/60\",\n            strong: \"bg-muted-foreground/20\",\n        },\n\n        fill: {\n            true: \"absolute inset-0 z-10 size-full\",\n            false: \"\",\n        },\n    },\n\n    defaultVariants: {\n        animation: \"pulse\",\n        speed: \"normal\",\n        tone: \"default\",\n        fill: false,\n    },\n})\n\ntype SkeletonProps = React.ComponentProps<\"div\"> &\n    VariantProps<typeof skeletonVariants>\n\nfunction Skeleton({\n    className,\n    animation,\n    speed,\n    tone,\n    fill,\n    ...props\n}: SkeletonProps) {\n    return (\n        <div\n            data-slot=\"skeleton\"\n            className={cn(\n                skeletonVariants({\n                    animation,\n                    speed,\n                    tone,\n                    fill,\n                }),\n                className\n            )}\n            {...props}\n        />\n    )\n}\n\nexport { Skeleton, skeletonVariants }",
+      "type": "registry:component",
+      "target": "components/ui/skeleton.tsx"
+    }
+  ],
+  "type": "registry:block"
+}
