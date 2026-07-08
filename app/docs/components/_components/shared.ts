@@ -19,6 +19,7 @@ export const uiLinks = withBase([
     { href: "/reveal", label: "reveal" },
     { href: "/marquee", label: "marquee" },
     { href: "/skeleton", label: "skeleton" },
+    { href: "/tooth-frame", label: "tooth-frame" },
 ])
 
 export const utilityLinks = withBase([

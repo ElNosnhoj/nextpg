@@ -115,6 +115,21 @@
                     "type": "registry:component"
                 }
             ]
+        },
+        {
+            "name": "tooth-frame",
+            "title": "Tooth Frame",
+            "type": "registry:block",
+            "description": "Animated pill frame with configurable tooth geometry, direction, sizing, and colors.",
+            "registryDependencies": [],
+            "dependencies": [],
+            "files": [
+                {
+                    "path": "components/ui/tooth-frame.tsx",
+                    "target": "components/ui/tooth-frame.tsx",
+                    "type": "registry:component"
+                }
+            ]
         }
     ]
 }
