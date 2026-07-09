@@ -132,6 +132,23 @@
             ]
         },
         {
+            "name": "pill-toggle",
+            "title": "Pill Toggle",
+            "type": "registry:block",
+            "description": "Segmented pill toggle with text labels, controlled and uncontrolled state, sizing, variants, and input props.",
+            "registryDependencies": [
+                "class-variance-authority"
+            ],
+            "dependencies": [],
+            "files": [
+                {
+                    "path": "components/ui/pill-toggle.tsx",
+                    "target": "components/ui/pill-toggle.tsx",
+                    "type": "registry:component"
+                }
+            ]
+        },
+        {
             "name": "color-control",
             "title": "Color Control",
             "type": "registry:block",
