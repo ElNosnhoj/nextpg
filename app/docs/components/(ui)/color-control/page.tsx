@@ -116,13 +116,10 @@ function ColorControlPreview({
           />
         </div>
 
-        <div className="w-full max-w-xs overflow-hidden rounded-xl border bg-background shadow-sm">
+        <div className="w-64 max-w-xs overflow-hidden rounded-xl border bg-background shadow-sm">
+
           <div
-            className="h-24 border-b"
-            style={{ backgroundColor: colorState.color }}
-          />
-          <div
-            className="flex flex-col gap-3 p-4"
+            className="flex flex-col gap-7 p-4"
             style={{
               backgroundColor: colorState.color,
               color: colorState.textColor,
@@ -134,6 +131,7 @@ function ColorControlPreview({
                 {getUsageColor(colorState.color, controls.alpha)}
               </span>
             </div>
+            <div className="absolute left-0 top-12 border-t border-border/50 w-full h-px"/>
             <p className="text-sm">
               The preview uses the hook color for fill and the derived
               contrasting text color for readable foreground content.
