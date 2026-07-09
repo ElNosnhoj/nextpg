@@ -18,6 +18,7 @@ import {
     getContrastingTextColor,
     type ColorState,
 } from "@/components/ui/color-control";
+import { cn } from "@/lib/utils";
 
 type ControlBase = {
     label?: string;
@@ -123,6 +124,32 @@ function BooleanControlField({
     value: boolean;
     onChange: (value: boolean) => void;
 }) {
+    return (
+        <label className="inline-flex cursor-pointer select-none rounded-full overflow-hidden active:outline-3 focus:outline-3 outline-ring ">
+            <input type="checkbox" name={id} checked={value} onChange={e => onChange(e.target.checked)} className="sr-only" />
+            <span className="relative grid h-9 min-w-42 grid-cols-2 items-center  font-medium text-neutral-500 transition bg-muted-foreground">
+                <span className={cn(
+                    "absolute bg-accent duration-200 transition-all ease-in-out shadow-2xs",
+                    "inset-0.5 w-[calc(50%-2px)] rounded-full" ,
+                    value && "translate-x-full"
+                )}>
+
+                </span>
+                <span className={cn(
+                    "relative z-10 text-center transition-all duration-200 ease-in-out",
+                    value ? "text-muted" : "text-foreground"
+                )}>
+                    false
+                </span>
+                <span className={cn(
+                    "relative z-10 text-center transition-all duration-200 ease-in-out mr-1",
+                    value ? "text-foreground" : "text-muted"
+                )}>
+                    true
+                </span>
+            </span>
+        </label>
+    )
     return (
         <RadioGroup
             value={String(value)}
